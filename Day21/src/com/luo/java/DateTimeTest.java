@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -63,6 +64,44 @@ public class DateTimeTest {
         java.sql.Date birthDate = new java.sql.Date(date.getTime());
         System.out.println(birthDate);
 
+    }
+
+
+    //Calendar日历类（抽象类）的使用
+    @Test
+    public void testCalendar(){
+        //1.实例化
+        Calendar calendar = Calendar.getInstance();
+
+
+        //2.常用方法
+        //get();
+        int days = calendar.get(Calendar.DAY_OF_MONTH);//获取今天是几号
+        System.out.println(days);
+        int yearDays = calendar.get(Calendar.DAY_OF_YEAR);//今天是今年的第几天
+        System.out.println(yearDays);
+
+        System.out.println("***");
+
+        //set();
+        calendar.set(Calendar.DAY_OF_MONTH,5);  //修改当月的第几天
+        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
+
+        System.out.println("***");
+
+        //add()
+        calendar.add(Calendar.DAY_OF_MONTH,5);//相加操作，如果要相减，输入负数即可
+        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
+
+        //getTime():日例类--->Date
+        Date date = calendar.getTime();
+        System.out.println(date);
+
+        //setTime():Date--->日历类
+        Date date1 = new Date();
+        calendar.setTime(date1);
+        days = calendar.get(Calendar.DAY_OF_MONTH);
+        System.out.println(days);
     }
 
 }
