@@ -52,6 +52,41 @@ public class IteratorTest {
             }
         }
 
+
+        Iterator i2 = coll.iterator();
+        while (i2.hasNext()){
+            System.out.println(i2.next());
+        }
+
+
         System.out.println(coll);
+    }
+
+    @Test
+    public void test3(){
+        Collection coll = new ArrayList();
+        coll.add(123);
+        coll.add(456);
+        coll.add(new String("Tom"));
+        coll.add(false);
+        coll.add(new Person("Jerry",19));
+
+        //for(集合元素类型 局部变量 : 集合对象)
+        for (Object obj : coll){
+            System.out.println(obj);
+        }
+    }
+
+    @Test
+    public void test4(){
+        String[] arr = new String[]{"MM","MM","MM"};
+
+        for (String s : arr){
+            s = "GG";
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
     }
 }
