@@ -20,7 +20,7 @@ public class GenericTest {
         list.add(89);
         list.add(88);
         //问题一：类型不安全
-        list.add("Tom");
+        //list.add("Tom");
 
         for(Object score :list){
             //问题二：强制转换时，可能出现ClassCastException
